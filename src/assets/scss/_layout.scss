@@ -1,0 +1,56 @@
+.top-bar {
+  padding: 1rem;
+}
+
+.address {
+  padding: .5rem;
+}
+
+// Utilities
+
+.p-t-1 {
+  padding-top: 1rem;
+}
+
+.p-t-2 {
+  padding-top: 2rem;
+}
+
+.p-b-1 {
+  padding-bottom: 1rem;
+}
+
+.p-b-2 {
+  padding-bottom: 2rem;
+}
+
+#more-info,
+#hyfield6,
+#hyfield3 {
+  display: none;
+}
+
+#hy-XH4xPGofJ-1 {
+  @extend .cell, .small-12, .large-10;
+  width: 80%;
+  max-width: 1440px;
+  border: 1px solid red !important;
+}
+
+#hyform {
+  button {
+    background-color: $black;
+    color: $white;
+    border: none;
+    border-radius: 0;
+    font-family: $body-font-family;
+    font-weight: bold;
+  }
+  li, #hyfield1, #hyfield2, #form-fields, .form-actions {
+    display: inline-block;
+  }
+  .name-fields li,
+  #hyfield1 {
+    width: 15vw;
+  }
+}
