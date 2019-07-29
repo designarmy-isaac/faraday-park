@@ -8,6 +8,15 @@
 
 // Utilities
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
 .p-t-1 {
   padding-top: 1rem;
 }
@@ -24,6 +33,23 @@
   padding-bottom: 2rem;
 }
 
+.p-l-2 {
+  padding-left: 2rem !important;
+}
+.p-r-2 {
+  padding-right: 2rem !important;
+}
+
+@include breakpoint(large) {
+  .large-p-b-5 {
+    padding-bottom: 5rem;
+  }
+}
+
+.mh-20 {
+  min-height: 20rem;
+}
+
 #more-info,
 #hyfield6,
 #hyfield3 {
@@ -32,12 +58,13 @@
 
 #hy-XH4xPGofJ-1 {
   @extend .cell, .small-12, .large-10;
-  width: 80%;
-  max-width: 1440px;
+  width: 100% !important;
+  max-width: 100%;
   border: 1px solid red !important;
 }
 
 #hyform {
+  vertical-align: top;
   button {
     background-color: $black;
     color: $white;
@@ -45,12 +72,101 @@
     border-radius: 0;
     font-family: $body-font-family;
     font-weight: bold;
+    margin-top: 2.7rem;
   }
   li, #hyfield1, #hyfield2, #form-fields, .form-actions {
-    display: inline-block;
+    @include breakpoint(large) {
+      display: inline-block;
+    }
+    vertical-align: top;
+  }
+  .name-fields {
+    padding-right: .2rem;
   }
   .name-fields li,
   #hyfield1 {
-    width: 15vw;
+    width: 100%;
+    min-width: 320px;
+  }
+  label {
+    position: relative;
+    top: 2.6rem;
+    left: .5rem;
+  }
+  input {
+    padding-left: 6.5rem;
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid $black;
+  }
+}
+
+#previous-button,
+#next-button {
+  display: inline-block;
+  padding: .5rem;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+#previous-button {
+  top: -2rem;
+}
+
+#next-button {
+  top: -6rem;
+}
+
+#previous-icon,
+#next-icon {
+  border-top: 1px solid $black;
+  border-right: 1px solid $black;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+  opacity: 1;
+  position: relative;
+}
+
+#previous-icon {
+  transform: rotate(230deg) skew(10deg, 0deg);
+  top: 0;
+  left: .5rem;
+}
+
+#next-icon {
+  transform: rotate(50deg) skew(10deg, 0deg);
+  top: 0;
+  left: -.5rem;
+}
+
+.slide {
+  display: none;
+  background: #efe7df;
+  div {
+    position: relative;
+    width: 100%;
+  }
+}
+
+.slide-text {
+  display: inline-block;
+  background: rgba(255,255,255,0.4);
+  position: absolute; 
+  bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+#slideshow-1 .slide-text {
+  font-size: 1.5rem;
+  @include breakpoint(large) {
+    font-size: 2rem;
+    top: 1rem;
   }
 }

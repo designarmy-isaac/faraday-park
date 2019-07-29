@@ -1,3 +1,33 @@
 .text-uppercase {
   text-transform: uppercase;
 }
+
+.title {
+  font-size: 1rem;
+}
+
+.hero {
+  font-size: 10vw;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  @include breakpoint(large) {
+    overflow-x: visible;
+    font-size: 5rem;
+    letter-spacing: 6px;
+    top: 3rem;
+  }
+}
+
+.hero-container {
+  position: relative;
+  height: 2rem;
+  width: 100%;
+  z-index: 900;
+}
