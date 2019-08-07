@@ -12,16 +12,19 @@
   letter-spacing: 2px;
   text-align: center;
   text-transform: uppercase;
-  line-height: 1;
+  line-height: .9;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   @include breakpoint(large) {
     overflow-x: visible;
-    font-size: 5rem;
+    font-size: 6vw;
     letter-spacing: 6px;
     top: 3rem;
+  }
+  @include breakpoint(xlarge) {
+    font-size: 5rem;
   }
 }
 
