@@ -39,8 +39,8 @@ function fn() {
   }); 
   
   function preserveHeight($el) { // preserve element's height in css so content can change without layout jumping
-    var h = $el.height();
-    $el.height(h);
+//    var h = $el.height();
+//    $el.height(h);
   }
   
   function showSlide(n) {
