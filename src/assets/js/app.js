@@ -13,19 +13,35 @@ window.jQuery = $;
 // the line below
 import './lib/foundation-explicit-pieces';
 
+$("body").hide()
+
 $(document).foundation();
 $(document).ready( fn );
 
 function fn() {
+  
+  $("body").fadeIn(2000);
   
   var activeSlideIndex = 0,
       nextSlideIndex,
       previousSlideIndex;
   
   const $nextButton = $('#next-button'),
-        $previousButton = $('#previous-button');
+        $previousButton = $('#previous-button'),
+        $slideshow1 = $('#slideshow-1'),
+        $slideshow2 = $('#slideshow-2');
   
   showSlide(activeSlideIndex);
+    
+  $(window).resize(function() { 
+    $slideshow1.css('height', 'auto'); // let slideshow's height adjust to new layout
+    preserveHeight($slideshow1); // set slideshows height in css so images and text can swap without layout jumping
+  }); 
+  
+  function preserveHeight($el) { // preserve element's height in css so content can change without layout jumping
+    var h = $el.height();
+    $el.height(h);
+  }
   
   function showSlide(n) {
     var i,
@@ -48,9 +64,11 @@ function fn() {
       nextSlideIndex = n + 1;
     }
     
-    for (i = 0; i < $slides.length; i++) {
-      $slides[i].style.display = "none";
-    }
+//    for (i = 0; i < $slides.length; i++) {
+////      $slides[i].style.display = "none";
+//      $slides.eq(i).fadeOut(500);
+////      $slides.hide;
+//    }
     
     var previousSlide = $('#'+ 'slide-' + previousSlideIndex).detach();
     var activeSlide = $('#'+ 'slide-' + activeSlideIndex).detach();
@@ -60,10 +78,24 @@ function fn() {
     activeSlide.appendTo('#slideshow-1');
     nextSlide.prependTo('#slideshow-2');
     
-    var $slide1 = $('#slideshow-1 .slide')[0],
-        $slide2 = $('#slideshow-2 .slide')[0];
-    $slide1.style.display = "inline-block";
-    $slide2.style.display = "inline-block";
+    $('.slide').hide();
+    
+//    var $slide1 = $('#slideshow-1 .slide')[0],
+//        $slide2 = $('#slideshow-2 .slide')[0];
+//    $slide1.style.display = "inline-block";
+//    $slide2.style.display = "inline-block";
+//    $slide1.style.opacity = "0";
+//    $slide2.style.opacity = "0";
+//    $slide1.style.opacity = "1";
+//    $slide2.style.opacity = "1";
+    $('#slideshow-1 .slide').eq(0).fadeIn(700);
+    $('#slideshow-2 .slide').eq(0).fadeIn(700);
+    
+    preserveHeight($slideshow1);
+    
+//    $('.slide').hide();
+//    activeSlide.addClass('shown');
+//    nextSlide.addClass('shown');
     
   }
   
@@ -74,5 +106,6 @@ function fn() {
   $previousButton.click(function() {
     showSlide(activeSlideIndex - 1);
   });
+  
   
 }

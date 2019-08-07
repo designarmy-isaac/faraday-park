@@ -44,12 +44,6 @@
   padding-right: 2rem !important;
 }
 
-@include breakpoint(large) {
-  .large-p-b-4 {
-    padding-bottom: 4rem;
-  }
-}
-
 .mh-20 {
   min-height: 20rem;
 }
@@ -78,6 +72,9 @@
     font-weight: bold;
     margin-top: 2.7rem;
     float: right;
+    &:hover {
+      background: #333333;
+    }
   }
   li, #hyfield1, #hyfield2, #form-fields, .form-actions {
     @include breakpoint(large) {
@@ -94,6 +91,12 @@
   #hyfield1 {
     input {
       padding-left: 7.5rem;
+      transition: all .5s;
+      cursor: text;
+      color: $black;
+      &:hover {
+        border: 1px solid #333333;
+      }
     }
   }
   .name-fields li,
@@ -106,8 +109,14 @@
   }
   label {
     position: relative;
+    z-index: -100;
     top: 2.55rem;
     left: .5rem;
+    cursor: pointer;
+    color: $black;
+    &:hover {
+      color: #333333;
+    }
     &:after {
       content: ':';
       position: relative;
@@ -119,6 +128,12 @@
     border-radius: 0;
     box-shadow: none;
     border: 1px solid $black;
+    transition: all .5s;
+    cursor: text;
+    color: $black;
+    &:hover {
+      border: 1px solid #333333;
+    }
   }
 }
 
@@ -172,14 +187,26 @@
   left: -.5rem;
 }
 
+#slideshow-1,
+#slideshow-2 {
+  background: #efe7df;
+}
+
+
 .slide {
   display: none;
   background: #efe7df;
+//  opacity: 0;
+//  transition: opacity 2s;
   div {
     position: relative;
     width: 100%;
   }
 }
+
+//.slide.shown {
+//  opacity: .5;
+//}
 
 .slide-text {
   display: inline-block;
@@ -189,6 +216,14 @@
   margin-right: 1rem;
   line-height: 1.2;
   font-weight: bold;
+}
+
+#slideshow-2 {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  @include breakpoint(large) {
+    margin-bottom: 4rem;
+  }
 }
 
 #slideshow-1 .slide-text {
