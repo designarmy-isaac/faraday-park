@@ -221,8 +221,8 @@
 #slideshow-2 {
   margin-top: 1rem;
   margin-bottom: 2rem;
-  @include breakpoint(large) {
-    margin-bottom: 4rem;
+  @include breakpoint(xlarge) {
+    margin-bottom: 3rem;
   }
 }
 
