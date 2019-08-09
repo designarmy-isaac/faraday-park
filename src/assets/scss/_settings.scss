@@ -107,8 +107,8 @@ $print-hrefs: true;
 
 $breakpoints: (
   small: 0,
-  medium: 640px,
-  large: 960px,
+  medium: 600px,
+  large: 800px,
   xlarge: 1200px,
   xxlarge: 1440px,
 );
@@ -158,7 +158,7 @@ $header-styles: (
 );
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
-$header-small-font-color: $medium-gray;
+$header-small-font-color: $black;
 $paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;

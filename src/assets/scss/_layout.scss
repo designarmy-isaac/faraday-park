@@ -1,12 +1,6 @@
-.top-bar {
-  padding: 1rem;
-}
-
-.address {
-  padding: .5rem;
-}
-
-// Utilities
+/* ==============================
+   ============================== UTILITY CLASSES
+   =========================== */
 
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
@@ -15,6 +9,10 @@
        -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.m-b-0 {
+  margin-bottom: 0;
 }
 
 .p-t-1 {
@@ -44,119 +42,124 @@
   padding-right: 2rem !important;
 }
 
-#more-info,
-#hyfield6,
-#hyfield3 {
-  display: none;
+.text-uppercase {
+  text-transform: uppercase;
 }
 
-#hy-XH4xPGofJ-1 {
-  @extend .cell;
-  width: 100% !important;
-  max-width: 100%;
-//  border: 1px solid red !important;
+
+/* ==============================
+   ============================== GRID
+   =========================== */
+
+.grid-container.small-bleed {
+  padding: 0;
+  overflow-x: hidden;
 }
 
-#hyform {
-  vertical-align: top;
-  button {
-    background-color: $black;
-    color: $white;
-    border: none;
-    border-radius: 0;
-    font-family: $body-font-family;
-    font-weight: bold;
-    margin-top: 2.7rem;
+.grid-container.medium-padded {
+  @include breakpoint(medium) {
+    padding: 0 1rem;
+  }
+}
+
+/* ==============================
+   ============================== TOP BAR
+   =========================== */
+
+.text-strong {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: .8rem;
+  line-height: 1.2;
+}
+
+.top-bar {
+  padding: 1rem;
+  @include breakpoint(medium) {
+   padding: 1rem 2rem;
+  }
+}
+
+.address {
+  margin: 0;
+  padding: 1rem 0 0;
+  text-align: center;
+  
+  @include breakpoint(medium) {
     float: right;
-    &:hover {
-      background: #333333;
-    }
-  }
-  li, #hyfield1, #hyfield2, #form-fields, .form-actions {
-    @include breakpoint(large) {
-      display: inline-block;
-    }
-    vertical-align: top;
-  }
-  .name-fields {
-    padding-right: .2rem;
-    input {
-      padding-left: 6rem;
-    }
-  }
-  #hyfield1 {
-    input {
-      padding-left: 7.5rem;
-      transition: all .5s;
-      cursor: text;
-      color: $black;
-      &:hover {
-        border: 1px solid #333333;
-      }
-    }
-  }
-  .name-fields li,
-  #hyfield1 {
-    width: 100%;
-    @include breakpoint(large) {
-      width: 25vw !important;
-      max-width: 320px;
-    }
-  }
-  label {
-    position: relative;
-    z-index: -100;
-    top: 2.55rem;
-    left: .5rem;
-    cursor: pointer;
-    color: $black;
-    &:hover {
-      color: #333333;
-    }
-    &:after {
-      content: ':';
-      position: relative;
-      left: -2px;
-    }
-  }
-  input {
-    padding-left: 7rem;
-    border-radius: 0;
-    box-shadow: none;
-    border: 1px solid $black;
-    transition: all .5s;
-    cursor: text;
-    color: $black;
-    &:hover {
-      border: 1px solid #333333;
-    }
+    padding: 0;
   }
 }
+
+.title {
+  margin: 0;
+  padding: 1rem 0 2rem;
+  text-align: center;
+  @include breakpoint(large) {
+    padding: 0;
+  }
+}
+
+
+/* ==============================
+   ============================== SLIDESHOW
+   =========================== */
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  z-index: 900;
+  height: 34vw;
+  @include breakpoint(medium) {
+    height: 27vw;
+  }
+  @include breakpoint(large) {
+    height: 0;
+    margin-top: 2rem;
+  }
+}
+
+.hero {
+  text-align: center;
+  text-transform: uppercase;
+  
+  font-size: 15vw;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: .9;
+  
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  overflow-x: visible;
+  
+  @include breakpoint(medium) {
+    font-size: 12vw;
+  }
+  
+  @include breakpoint(large) {
+    font-size: 6vw;
+    letter-spacing: 6px;
+    top: -.25rem;
+  }
+  
+  @include breakpoint(xlarge) {
+    font-size: 4.6rem;
+  }
+}
+
 
 #previous-button,
 #next-button {
-  display: inline-block;
-  padding: .5rem;
-  position: relative;
   cursor: pointer;
+  display: inline-block;
+  position: relative;
+  padding: 1rem;
+  max-width: 100%;
+//  border: 1px solid rgba(255,0,0,0.1);
   &:hover {
     opacity: 0.7;
-  }
-}
-
-#previous-button {
-  top: -1rem;
-  left: 2rem;
-  @include breakpoint(medium) {
-    top: -2rem;
-    left: 0;
-  }
-}
-
-#next-button {
-  top: -2rem;
-  @include breakpoint(medium) {
-    top: -6rem;
   }
 }
 
@@ -165,22 +168,20 @@
   border-top: 1px solid $black;
   border-right: 1px solid $black;
   display: inline-block;
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
   opacity: 1;
   position: relative;
 }
 
-#previous-icon {
+#next-icon {
   transform: rotate(50deg) skew(10deg, 0deg);
-  top: 0;
-  left: .5rem;
+  right: .4rem;
 }
 
-#next-icon {
+#previous-icon {
   transform: rotate(230deg) skew(10deg, 0deg);
-  top: 0;
-  left: -.5rem;
+  left: .5rem;
 }
 
 #slideshow-1,
@@ -211,17 +212,9 @@
 #slideshow-2 {
   margin-top: 1rem;
   margin-bottom: 2rem;
-  @include breakpoint(xlarge) {
-    margin-bottom: 3rem;
-  }
 }
 
 #slideshow-1{
-  margin-top: 5rem;
-  @include breakpoint(large) {
-    margin-top: 0;
-    min-height: 20rem;
-  }
   & .slide-text {
     font-size: 1.25rem;
     @include breakpoint(medium) {
@@ -234,19 +227,148 @@
       margin-top: .5rem;
     }
   }
+  @include breakpoint(large) {
+    margin-top: 0;
+    min-height: 20rem;
+  }
+}
+
+/* ==============================
+   ============================== FORM
+   =========================== */
+
+#more-info,
+#hyfield6,
+#hyfield3 {
+  display: none;
+}
+
+#hy-XH4xPGofJ-1 {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+#hyform {
+  vertical-align: top;
+  width: auto;
+  
+  padding: 0 1rem;
+  @include breakpoint(medium) {
+    padding: 0;
+  }
+  
+  button {
+    display: block;
+    background-color: $black;
+    color: $white;
+    border: none;
+    border-radius: 0;
+    font-family: $body-font-family;
+    font-weight: bold;
+    margin-top: 2.7rem;
+    margin-left: auto;
+    margin-right: auto;
+    &:hover {
+      background: #333333;
+    }
+  }
+}
+
+#form-fields li,
+#hyfield1,
+#hyfield2 {
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+  @include breakpoint(large) {
+    display: inline-block;
+  }
+}
+
+#form-fields label {
+  position: relative;
+  z-index: -100;
+  top: 2.55rem;
+  padding-left: .5rem;
+  cursor: pointer;
+  color: $black;
+  &:hover {
+    color: #333333;
+  }
+  &:after {
+    content: ':';
+    position: relative;
+    left: -2px;
+  }
+}
+
+#form-fields input {
+  padding-left: 7rem;
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid $black;
+  transition: all .5s;
+  cursor: text;
+  color: $black;
+  &:hover {
+    border: 1px solid #333333;
+  }
+}
+
+#form-fields .name-fields {
+//  padding-right: .2rem;
+  input {
+    padding-left: 6rem;
+  }
+}
+
+#hyfield1 {
+//  background: rgba(255,0,0,0.2);
+  input {
+    padding-left: 7.5rem;
+  }
+  @include breakpoint(large) {
+    width: 32%;
+  }
+}
+
+#hyfield2 {
+//  background: rgba(0,255,0,0.2);
+  @include breakpoint(large) {
+    width: 68%;
+  }
+  ul {
+    letter-spacing: -.25rem;
+    li {
+      letter-spacing: 0;
+      @include breakpoint(large) {
+        width: 50%;
+        padding-right: 3.33%;
+      }
+    }
+  }
+}
+
+/* ==============================
+   ============================== FOOTER
+   =========================== */
+
+footer {
+  padding: 2rem 1rem 1rem;
+  @include breakpoint(medium) {
+    padding: 4rem 0 1rem;
+  }
 }
 
 .footer-image {
-  height: 1.5rem;
+  height: 1rem;
   width: auto;
+  float: left;
 }
 
 .footer-icon {
   height: 1rem;
   width: auto;
   margin: .25rem;
-}
-
-.h5 {
-  text-transform: uppercase;
+  float: right;
 }
