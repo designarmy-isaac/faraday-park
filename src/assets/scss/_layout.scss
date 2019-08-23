@@ -30,6 +30,9 @@
 .p-b-1 {
   padding-bottom: 1rem;
 }
+.p-r-1 {
+  padding-right: 1rem;
+}
 
 .p-b-2 {
   padding-bottom: 2rem;
@@ -358,10 +361,14 @@ footer {
   @include breakpoint(medium) {
     padding: 4rem 0 1rem;
   }
+  a:hover {
+    transition: all .3s ease-in-out;
+    opacity: .8;
+  }
 }
 
 .footer-image {
-  height: 1rem;
+  height: 1.75rem;
   width: auto;
   float: left;
 }
@@ -369,6 +376,14 @@ footer {
 .footer-icon {
   height: 1rem;
   width: auto;
-  margin: .25rem;
+  margin: .75rem .25rem .25rem;
   float: right;
+}
+
+.footer-icon a {
+  position: relative;
+  top: .1rem;
+  &:hover {
+    text-decoration: underline;
+  }
 }
