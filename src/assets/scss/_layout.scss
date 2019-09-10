@@ -118,12 +118,16 @@
   }
   @include breakpoint(large) {
     height: 0;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 }
 
+.text-success {
+  color: $success-color;
+}
+
 .hero {
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
   
   font-size: 15vw;
@@ -132,8 +136,7 @@
   line-height: .9;
   
   position: absolute;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 2rem;
   width: 100%;
   overflow-x: visible;
   
@@ -142,13 +145,13 @@
   }
   
   @include breakpoint(large) {
-    font-size: 6vw;
+    font-size: 6.5vw;
     letter-spacing: 6px;
     top: -.25rem;
   }
   
   @include breakpoint(xlarge) {
-    font-size: 4.6rem;
+    font-size: 5.5rem;
   }
 }
 
@@ -158,7 +161,7 @@
   cursor: pointer;
   display: inline-block;
   position: relative;
-  padding: 1rem;
+  padding: 1rem 1rem .45rem;
   max-width: 100%;
 //  border: 1px solid rgba(255,0,0,0.1);
   &:hover {
@@ -215,6 +218,9 @@
 #slideshow-2 {
   margin-top: 1rem;
   margin-bottom: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
 }
 
 #slideshow-1{
@@ -224,10 +230,13 @@
       font-size: 2rem;
     }
     @include breakpoint(large) {
-      font-size: 2rem;
+      font-size: 1.75rem;
       top: 1rem;
       margin-left: 1.5rem;
       margin-top: .5rem;
+    }
+    @include breakpoint(xlarge) {
+      font-size: 2rem;
     }
   }
   @include breakpoint(large) {
